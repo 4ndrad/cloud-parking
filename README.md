@@ -6,7 +6,7 @@ Utilizando Spring Boot para controlar um estacionamento de veículos. Serão con
 Utilizamos as seguintes ferramentas para a segurança o Spring Security, para o acesso a banco de dados MySQL com deploy na cloud do Heroku a fim de disponibilizar nossa API para a Internet e documentação a partir do Swagger.
 
 #### Deploy com Heroku
-https://parking-ntn.herokuapp.com/
+https://parking-ntn.herokuapp.com/parking
 
 #### Documentação
 https://parking-ntn.herokuapp.com/swagger-ui.html

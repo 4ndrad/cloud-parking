@@ -9,4 +9,4 @@ Utilizamos as seguintes ferramentas para a segurança o Spring Security, para o 
 https://parking-ntn.herokuapp.com/
 
 #### Documentação
-http://localhost:8080/swagger-ui.html
+https://parking-ntn.herokuapp.com/swagger-ui.html

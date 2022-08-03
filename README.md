@@ -8,10 +8,10 @@ As ferrametas usadas foram  o Spring Security  para a segurança, Spring Data pa
 ## Run database                                                                                                    
 docker run --name parking-db -p 3306:3306 -e MYSQL_DB=parking -e MYSQL_USER=admin -e MYSQL_PASSWORD=8kH#qgAik368&0 -d mysql:10-alpine
 
-## Start Database
+### Start Database
 docker start parking-db
 
-## Stop Database
+### Stop Database
 docker stop parking-db
 
 #### Deploy da API

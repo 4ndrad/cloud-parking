@@ -66,11 +66,18 @@ public class ParkingController {
 	}
 	
 	@PutMapping("/{id}")
-	@ApiOperation("parking update")
+	@ApiOperation("Parking update")
 	public ResponseEntity<ParkingDTO> update(@PathVariable String id, @RequestBody ParkingCreateDTO dto){
 		var parkingCreate = parkingMapper.toParkingCreate(dto);
 		Parking parking = parkingService.update(id, parkingCreate);
 		ParkingDTO result = parkingMapper.toParkingDTO(parking);
 		return ResponseEntity.status(HttpStatus.OK).body(result);
 	}
+	
+//	@PostMapping("/{id}/exit")
+//	@ApiOperation("Exit parking")
+//	public ResponseEntity<ParkingDTO> exit(@PathVariable String id){
+//		Parking parking = parkingService.exit(id);
+//		return ResponseEntity.ok(parkingMapper.toParkingDTO(parking));
+//	}
 }

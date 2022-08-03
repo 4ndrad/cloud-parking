@@ -17,14 +17,11 @@ public class ParkingService {
 
 	private static Map<String , Parking> parkingMap = new HashMap<String, Parking>();
 	
-	static {
-		var id = getUUID();
-		var id1 = getUUID();
-		Parking parking = new Parking(id, "DMS-1111", "SC", "CELTA", "PRETO", null, null, null);
-		Parking parking2 = new Parking(id1, "FGT-4895", "SP", "CORSA", "VERDE", null, null, null);
-		parkingMap.put(id, parking);
-		parkingMap.put(id1, parking2);
-	}
+//	static {
+//		var id = getUUID();
+//		Parking parking = new Parking(id, "DMS-1111", "SC", "CELTA", "PRETO", null, null, null);
+//		parkingMap.put(id, parking);
+//	}
 	
 	public List<Parking> findAll(){
 		return parkingMap.values().stream().collect(Collectors.toList());
@@ -70,5 +67,14 @@ public class ParkingService {
 		parkingMap.replace(id, parking);
 		return parking;
 	}
+
+	//terminar
+//	public Parking exit(String id) {
+//		Parking parking = findById(id);
+//		if (parking == null) {
+//			throw new ParkingNotFoundException(id);
+//		}
+//		return null;
+//	}
 	
 }

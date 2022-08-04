@@ -5,6 +5,15 @@
 Utilizando Spring Boot para controlar um estacionamento de veículos. Serão controlados a entrada, saída e valor a ser cobrado do cliente.  
 As ferrametas usadas foram  o Spring Security  para a segurança, Spring Data para o acesso a banco de dados MySQL, o Heroku a fim de disponibilizar a API para a Internet e o Swagger para a documentação.
 
+### Autorizações
+
+## Swagger
+Vai ter um campo com um cadiado aberto na documentação, clique coloque o usuario e senha e em seguida clique em "Close"
+Você estara autorizado a usar e o cadiado estara fechado
+
+USER: user
+PASSWORD: dio@123
+
 #### Documentação
 https://parking-ntn.herokuapp.com/swagger-ui.html
 

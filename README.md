@@ -15,7 +15,7 @@ https://parking-ntn.herokuapp.com/parking
 ### mas deixei a dependência  e um arquivo de configuração disponivel, caso queira usar  basta seguir as instrções a baixo
 
 ## Docker
-Tenha o docker instalado e crie uma imagem (nome opcinal da imagem "mysql:10-alpine")
+Tenha o docker instalado e crie ou baixe uma imagem (nome opcinal da imagem "mysql:10-alpine")
 
 ## Run database
 docker run --name parking-db -p 3306:3306 -e MYSQL_DB=parking -e MYSQL_USER=admin -e MYSQL_PASSWORD=8kH#qgAik368&0 -d mysql:10-alpine 

@@ -16,7 +16,11 @@ https://parking-ntn.herokuapp.com/parking
 docker run --name parking-db -p 3306:3306 -e MYSQL_DB=parking -e MYSQL_USER=admin -e MYSQL_PASSWORD=8kH#qgAik368&0 -d mysql:10-alpine
 
 #### Caso tenha problema com o Docker ou o Container
-Use um banco em memória ou crie uma nova imagem
+
+Opte por usar e confingurar um Banco de Dados ao seu gosto
+
+Ou crie e use uma nova imagem
+
 Site do Test container https://www.testcontainers.org/
 
 ### Start Database

@@ -12,7 +12,7 @@ https://parking-ntn.herokuapp.com/swagger-ui.html
 https://parking-ntn.herokuapp.com/parking
 
 ## Optei por não usar o Docker e nem criar um container
-### mas deixei um arquivo de configuração disponivel caso queira usar  basta seguir as instrções a baixo
+### mas deixei a dependência  e um arquivo de configuração disponivel, caso queira usar  basta seguir as instrções a baixo
 
 ## Docker
 Primero tenta o docker instalado

@@ -8,6 +8,10 @@ As ferrametas usadas foram  o Spring Security  para a segurança, Spring Data pa
 ## Run database                                                                                                    
 docker run --name parking-db -p 3306:3306 -e MYSQL_DB=parking -e MYSQL_USER=admin -e MYSQL_PASSWORD=8kH#qgAik368&0 -d mysql:10-alpine
 
+#### Caso tenha problema com o Docker ou o Container
+Use um banco em memória ou crie uma nova imagem
+Site do Test container https://www.testcontainers.org/
+
 ### Start Database
 docker start parking-db
 

@@ -1,4 +1,4 @@
-package one.digitalinnovation.parking;
+package one.digitalinnovation.parking.controller;
 
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,11 +8,12 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 
 import io.restassured.RestAssured;
+import one.digitalinnovation.parking.container.AbstractContainerBase;
 import one.digitalinnovation.parking.controller.dto.ParkingCreateDTO;
 
 //teste vai subir em uma porta aleatoria
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class ParkingControllerIT {
+public class ParkingControllerTest extends AbstractContainerBase{
 	
 	@LocalServerPort
 	private int randomPort;
@@ -22,16 +23,15 @@ public class ParkingControllerIT {
 		RestAssured.port = randomPort;
 	}
 	
-//	@Test
-//	void whenFindAllThenCheckResult() {
-//		RestAssured.given()
-//			.when()
-//			.get("/parking")
-//			.then()
-//			.statusCode(HttpStatus.OK.value())
-//			.body("license[0]", Matchers.equalTo("DMS-1111"));
-//			
-//	}
+	@Test
+	void whenFindAllThenCheckResult() {
+		RestAssured.given()
+			.when()
+			.get("/parking")
+			.then()
+			.statusCode(HttpStatus.OK.value());
+			
+	}
 	
 	@Test
 	void whenCreateThenCheckIsCreated() {

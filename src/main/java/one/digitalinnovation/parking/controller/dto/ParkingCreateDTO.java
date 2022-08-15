@@ -1,11 +1,18 @@
 package one.digitalinnovation.parking.controller.dto;
 
 public class ParkingCreateDTO {
+	private String ownerName;
 	private String license;
 	private String state;
 	private String model;
 	private String color;
 	
+	public String getOwnerName() {
+		return ownerName;
+	}
+	public void setOwnerName(String ownerName) {
+		this.ownerName = ownerName;
+	}
 	public String getLicense() {
 		return license;
 	}

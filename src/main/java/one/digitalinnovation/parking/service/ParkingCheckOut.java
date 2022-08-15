@@ -1,6 +1,7 @@
 package one.digitalinnovation.parking.service;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 
 import one.digitalinnovation.parking.model.Parking;
@@ -13,8 +14,8 @@ public class ParkingCheckOut {
     public static final double ADDITIONAL_PER_HOUR_VALUE = 2.00;
     public static final double DAY_VALUE = 20.00;
 
-    private static Double getBill(LocalDateTime entryDate, LocalDateTime exitDate) {
-        long minutes = entryDate.until(exitDate, ChronoUnit.MINUTES);
+    private static Double getBill(LocalDate entryDate, LocalTime entryTime,LocalDate exitDate, LocalTime exitTime) {
+        long minutes = entryTime.until(exitTime, ChronoUnit.MINUTES);
         Double bill = 0.0;
         if (minutes <= ONE_HOUR) {
             return ONE_HOUR_VALUE;
@@ -37,7 +38,7 @@ public class ParkingCheckOut {
     }
 
     public static Double getBill(Parking parking) {
-        return getBill(parking.getEntryDate(), parking.getExitDate());
+        return getBill(parking.getEntryDate(), parking.getEntryTime(), parking.getExitDate(), parking.getExitTime());
     }
 
 }

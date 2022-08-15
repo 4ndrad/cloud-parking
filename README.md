@@ -9,7 +9,7 @@ As ferrametas usadas foram  o Spring Security  para a segurança, Spring Data pa
 No Swagger vai ter um campo com um cadiado aberto na documentação, clique coloque o usuario e senha e em seguida clique em "Close"
 Você estara autorizado a usar e o cadiado estara fechado
 
-USER: user    PASSWORD: dio@123   
+USER: user    PASSWORD: root   
 
 #### Documentação
 https://parking-ntn.herokuapp.com/swagger-ui.html

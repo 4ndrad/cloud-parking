@@ -1,6 +1,7 @@
 package one.digitalinnovation.parking.service;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -40,7 +41,9 @@ public class ParkingService {
 	public Parking create(Parking parkingCreate) {
 		String uuid = getUUID();
 		parkingCreate.setId(uuid);
-		parkingCreate.setEntryDate(LocalDateTime.now());
+		parkingCreate.setEntryTime(LocalTime.now());
+		parkingCreate.setEntryDate(LocalDate.now());
+		parkingCreate.setFinished(false);
 		parkingRepository.save(parkingCreate);
 		return parkingCreate;
 	}
@@ -71,7 +74,9 @@ public class ParkingService {
 		if (parking == null) {
 			throw new ParkingNotFoundException(id);
 		}
-		parking.setExitDate(LocalDateTime.now());
+		parking.setExitTime(LocalTime.now());
+		parking.setExitDate(LocalDate.now());
+		parking.setFinished(true);
 		parking.setBill(ParkingCheckOut.getBill(parking));
 		parkingRepository.save(parking);
 		return parking;

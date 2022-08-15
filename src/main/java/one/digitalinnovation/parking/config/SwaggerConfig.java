@@ -1,6 +1,5 @@
 package one.digitalinnovation.parking.config;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.springframework.context.annotation.Bean;

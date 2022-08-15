@@ -1,5 +1,5 @@
 # cloud-parking
-### Projeto desafio da Digital Innovation One (DIO)
+### Projeto Inicial baseado no desafio da Digital Innovation One (DIO)
 
 
 Utilizando Spring Boot para controlar um estacionamento de veículos. Serão controlados a entrada, saída e valor a ser cobrado do cliente.  

@@ -5,13 +5,16 @@
 Utilizando Spring Boot para controlar um estacionamento de veículos. Serão controlados a entrada, saída e valor a ser cobrado do cliente.  
 As ferrametas usadas foram  o Spring Security  para a segurança, Spring Data para o acesso a banco de dados MySQL, o Heroku a fim de disponibilizar a API para a Internet e o Swagger para a documentação.
 
-###Aceita tanto o padrão de placa antigo como o padrão novo Mercosul, por exemplo:
+### Aceita tanto o padrão de placa antigo como o padrão novo Mercosul, por exemplo:
 
 Por exemplo:
 
 -Argentina: AB123CD
+
 -Brasil: ABC1D23
+
 -Uruguai: ABC1234
+
 -Paraguai: 123ABCD
 
 mais informações https://www.detran.sp.gov.br/wps/portal/portaldetran/cidadao/oquefazerquando/aa929b6b-5788-4d32-a91f-0d220a559c47/

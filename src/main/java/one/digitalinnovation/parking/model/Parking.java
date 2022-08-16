@@ -6,12 +6,18 @@ import java.time.LocalTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity(name = "tab_parking")
 public class Parking {
 
 	@Id
 	private String id;
+	
+	@ManyToOne
+	@JoinColumn(name = "client_id")
+	private Client client;
 	
 	@Column(unique = true)
 	private String license;

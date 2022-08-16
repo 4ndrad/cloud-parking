@@ -2,6 +2,8 @@ package one.digitalinnovation.parking.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -56,9 +58,9 @@ public class ParkingController {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@PostMapping
+	@PostMapping(consumes = "application/json")
 	@ApiOperation("Create new parking")
-	public ResponseEntity<ParkingDTO> create(@RequestBody ParkingCreateDTO dto){
+	public ResponseEntity<ParkingDTO> create(@RequestBody @Valid ParkingCreateDTO dto){
 		var parkingCreate = parkingMapper.toParkingCreate(dto);
 		Parking parking = parkingService.create(parkingCreate);
 		ParkingDTO result = parkingMapper.toParkingDTO(parking);

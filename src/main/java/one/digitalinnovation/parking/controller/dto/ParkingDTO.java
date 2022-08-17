@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 public class ParkingDTO {
 	
 	private String id;
+	private Long client_id;
 	private String ownerName;
 	private String license;
 	private String state;
@@ -40,6 +41,14 @@ public class ParkingDTO {
 		this.id = id;
 	}
 	
+	public Long getClient_id() {
+		return client_id;
+	}
+
+	public void setClient_id(Long client_id) {
+		this.client_id = client_id;
+	}
+
 	public String getOwnerName() {
 		return ownerName;
 	}

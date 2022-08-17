@@ -1,49 +1,15 @@
-package one.digitalinnovation.parking.model;
+package one.digitalinnovation.parking.controller.dto;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+public class PriceDTO {
 
-@Entity(name = "tab_price")
-public class Price {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "client_id")
-	private Client client;
-
+	private Long client_id;
 	private int vagas;
 	private int oneHour;
 	private int twentyFourHour;
 	private double oneHourValue;
 	private double additionalPerHourValue;
-	private double dayValue;	
-	
-	public Price() {
-		
-	}
-	
-	public Price(Long id, Client client, int vagas, int oneHour, int twentyFourHour, double oneHourValue,
-			double additionalPerHourValue, double dayValue) {
-		super();
-		this.id = id;
-		this.client = client;
-		this.vagas = vagas;
-		this.oneHour = oneHour;
-		this.twentyFourHour = twentyFourHour;
-		this.oneHourValue = oneHourValue;
-		this.additionalPerHourValue = additionalPerHourValue;
-		this.dayValue = dayValue;
-	}
-
-
+	private double dayValue;
 
 	public Long getId() {
 		return id;
@@ -53,12 +19,12 @@ public class Price {
 		this.id = id;
 	}
 
-	public Client getClient() {
-		return client;
+	public Long getClient_id() {
+		return client_id;
 	}
 
-	public void setClient(Client client) {
-		this.client = client;
+	public void setClient_id(Long client_id) {
+		this.client_id = client_id;
 	}
 
 	public int getVagas() {
@@ -109,5 +75,5 @@ public class Price {
 		this.dayValue = dayValue;
 	}
 
-	
+
 }

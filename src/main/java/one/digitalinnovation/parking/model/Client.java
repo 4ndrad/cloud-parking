@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class Client {
 
 	private String clientName;
 
-	// @Column(unique = true)
+	@Column(unique = true)
 	private String cnpj;
 
 	private String email;
@@ -85,6 +86,15 @@ public class Client {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+
+	public List<Parking> getParking() {
+		return parking;
+	}
+
+	public void setParking(List<Parking> parking) {
+		this.parking = parking;
 	}
 
 }

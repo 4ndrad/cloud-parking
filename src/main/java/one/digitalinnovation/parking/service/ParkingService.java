@@ -5,11 +5,10 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.UUID;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import one.digitalinnovation.parking.exception.ParkingNotFoundException;
 import one.digitalinnovation.parking.model.Parking;
@@ -21,7 +20,7 @@ public class ParkingService {
 	@Autowired
 	private ParkingRepository parkingRepository;
 	
-	@org.springframework.transaction.annotation.Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
+	@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 	public List<Parking> findAll(){
 		return parkingRepository.findAll();
 	}
@@ -30,7 +29,7 @@ public class ParkingService {
 		return UUID.randomUUID().toString().replace("-", "");
 	}
 
-	@org.springframework.transaction.annotation.Transactional(readOnly = true)
+	@Transactional(readOnly = true)
 	public Parking findById(String id) {
 		return parkingRepository.findById(id).orElseThrow(() ->
 			new ParkingNotFoundException(id)

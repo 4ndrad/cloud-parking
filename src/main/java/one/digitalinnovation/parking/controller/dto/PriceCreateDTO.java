@@ -1,56 +1,27 @@
 package one.digitalinnovation.parking.controller.dto;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public class PriceCreateDTO {
 	
 	@NotNull
-	@NotEmpty
-	private int vagas;
+	private int vacancies;
 	
 	@NotNull
-	@NotEmpty
-	private int oneHour;
-	
-	@NotNull
-	@NotEmpty
-	private int twentyFourHour;
-	
-	@NotNull
-	@NotEmpty
 	private double oneHourValue;
 	
 	@NotNull
-	@NotEmpty
 	private double additionalPerHourValue;
 	
 	@NotNull
-	@NotEmpty
 	private double dayValue;
 
-	public int getVagas() {
-		return vagas;
+	public int getVacancies() {
+		return vacancies;
 	}
 
-	public void setVagas(int vagas) {
-		this.vagas = vagas;
-	}
-
-	public int getOneHour() {
-		return oneHour;
-	}
-
-	public void setOneHour(int oneHour) {
-		this.oneHour = oneHour;
-	}
-
-	public int getTwentyFourHour() {
-		return twentyFourHour;
-	}
-
-	public void setTwentyFourHour(int twentyFourHour) {
-		this.twentyFourHour = twentyFourHour;
+	public void setVacancies(int vacancies) {
+		this.vacancies = vacancies;
 	}
 
 	public double getOneHourValue() {

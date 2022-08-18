@@ -10,8 +10,6 @@ import one.digitalinnovation.parking.controller.dto.ClientCreateDTO;
 import one.digitalinnovation.parking.controller.dto.ClientDTO;
 import one.digitalinnovation.parking.model.Client;
 
-
-
 @Component
 public class ClientMapper {
 

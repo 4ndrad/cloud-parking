@@ -19,7 +19,7 @@ public class Price {
 	@JoinColumn(name = "client_id")
 	private Client client;
 
-	private int vagas;
+	private int vacancies;
 	private int oneHour;
 	private int twentyFourHour;
 	private double oneHourValue;
@@ -30,12 +30,12 @@ public class Price {
 		
 	}
 	
-	public Price(Long id, Client client, int vagas, int oneHour, int twentyFourHour, double oneHourValue,
+	public Price(Long id, Client client, int vacancies, int oneHour, int twentyFourHour, double oneHourValue,
 			double additionalPerHourValue, double dayValue) {
 		super();
 		this.id = id;
 		this.client = client;
-		this.vagas = vagas;
+		this.vacancies = vacancies;
 		this.oneHour = oneHour;
 		this.twentyFourHour = twentyFourHour;
 		this.oneHourValue = oneHourValue;
@@ -61,12 +61,12 @@ public class Price {
 		this.client = client;
 	}
 
-	public int getVagas() {
-		return vagas;
+	public int getVacancies() {
+		return vacancies;
 	}
 
-	public void setVagas(int vagas) {
-		this.vagas = vagas;
+	public void setVacancies(int vacancies) {
+		this.vacancies = vacancies;
 	}
 
 	public int getOneHour() {

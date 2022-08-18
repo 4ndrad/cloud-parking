@@ -4,7 +4,7 @@ public class PriceDTO {
 
 	private Long id;
 	private Long client_id;
-	private int vagas;
+	private int vacancies;
 	private int oneHour;
 	private int twentyFourHour;
 	private double oneHourValue;
@@ -27,12 +27,12 @@ public class PriceDTO {
 		this.client_id = client_id;
 	}
 
-	public int getVagas() {
-		return vagas;
+	public int getVacancies() {
+		return vacancies;
 	}
 
-	public void setVagas(int vagas) {
-		this.vagas = vagas;
+	public void setVacancies(int vacancies) {
+		this.vacancies = vacancies;
 	}
 
 	public int getOneHour() {

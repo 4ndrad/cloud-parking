@@ -2,11 +2,10 @@ package one.digitalinnovation.parking.service;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import one.digitalinnovation.parking.exception.ClientNotFoundException;
 import one.digitalinnovation.parking.model.Client;
@@ -18,12 +17,12 @@ public class ClientService {
 	@Autowired
 	private ClientRepository clientRepository;
 	
-	@org.springframework.transaction.annotation.Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
+	@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 	public List<Client> findAll(){
 		return clientRepository.findAll();
 	}
 	
-	@org.springframework.transaction.annotation.Transactional(readOnly = true)
+	@Transactional(readOnly = true)
 	public Client findById(Long id) {
 		return clientRepository.findById(id).orElseThrow(() ->
 			new ClientNotFoundException(id)

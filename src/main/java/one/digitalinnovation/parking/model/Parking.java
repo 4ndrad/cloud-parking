@@ -69,6 +69,17 @@ public class Parking {
 	public void setId(String id) {
 		this.id = id;
 	}
+	
+
+	public Client getClient() {
+		return client;
+	}
+
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
 
 	public String getLicense() {
 		return license;

@@ -5,6 +5,9 @@ import javax.validation.constraints.NotNull;
 public class PriceCreateDTO {
 	
 	@NotNull
+	private Long clientId;
+	
+	@NotNull
 	private int vacancies;
 	
 	@NotNull
@@ -15,6 +18,14 @@ public class PriceCreateDTO {
 	
 	@NotNull
 	private double dayValue;
+	
+	public Long getClientId() {
+		return clientId;
+	}
+
+	public void setClientId(Long clientId) {
+		this.clientId = clientId;
+	}
 
 	public int getVacancies() {
 		return vacancies;

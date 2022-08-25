@@ -1,3 +1,4 @@
+
 package one.digitalinnovation.parking.model;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -35,6 +37,10 @@ public class Client {
 	@OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Parking> parking = new ArrayList<>();
+	
+	@OneToOne(mappedBy = "client", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+	@JsonIgnore
+	private Price price;
 
 	public Client() {
 
@@ -95,6 +101,14 @@ public class Client {
 
 	public void setParking(List<Parking> parking) {
 		this.parking = parking;
+	}
+
+	public Price getPrice() {
+		return price;
+	}
+
+	public void setPrice(Price price) {
+		this.price = price;
 	}
 
 }

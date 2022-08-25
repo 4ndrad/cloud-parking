@@ -5,6 +5,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 public class ParkingCreateDTO {
+	
+	@NotNull
+	private Long clientId;
 
 	@NotNull
 	@NotEmpty
@@ -26,6 +29,14 @@ public class ParkingCreateDTO {
 	@NotNull
 	@NotEmpty
 	private String color;
+	
+	public Long getClientId() {
+		return clientId;
+	}
+
+	public void setClientId(Long clientId) {
+		this.clientId = clientId;
+	}
 
 	public String getOwnerName() {
 		return ownerName;

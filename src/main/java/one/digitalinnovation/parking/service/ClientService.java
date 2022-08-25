@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import one.digitalinnovation.parking.controller.dto.ClientCreateDTO;
 import one.digitalinnovation.parking.exception.ClientNotFoundException;
 import one.digitalinnovation.parking.model.Client;
 import one.digitalinnovation.parking.repository.ClientRepository;
@@ -30,30 +31,15 @@ public class ClientService {
 	}
 	
 	@Transactional
-	public Client create (Client clientCreate) {
+	public Client create (ClientCreateDTO clientCreate) {
 		Client client = new Client();
+		
 		client.setClientName(clientCreate.getClientName());
 		client.setCnpj(clientCreate.getCnpj());
 		client.setEmail(clientCreate.getEmail());
-		client.setPassword(client.getPassword());
+		client.setPassword(clientCreate.getPassword());
 		
-		clientRepository.save(clientCreate);
-		return clientCreate;
-	}
-	
-	@Transactional
-	public Client update(Long id, Client clientCreate) {
-		Client client = findById(id);
-		if (client == null) {
-			throw new ClientNotFoundException(id);
-		}
-		client.setClientName(clientCreate.getClientName());
-		client.setCnpj(clientCreate.getCnpj());
-		client.setEmail(clientCreate.getEmail());
-		client.setPassword(client.getPassword());
-		
-		clientRepository.save(clientCreate);
-		return client;
+		return clientRepository.save(client);
 	}
 	
 	@Transactional
@@ -61,5 +47,25 @@ public class ClientService {
 		findById(id);
 		clientRepository.deleteById(id);
 	}
+	
+//	@Transactional
+//	public Client update(Long id, Client clientCreate) {
+//		Client client = findById(id);
+//		if (client == null) {
+//			throw new ClientNotFoundException(id);
+//		}
+//		client.setClientName(clientCreate.getClientName());
+//		client.setCnpj(clientCreate.getCnpj());
+//		client.setEmail(clientCreate.getEmail());
+//		client.setPassword(client.getPassword());
+//		
+//		clientRepository.save(clientCreate);
+//		return client;
+//	}
+//	
+//	
+
+//	
+
 	
 }

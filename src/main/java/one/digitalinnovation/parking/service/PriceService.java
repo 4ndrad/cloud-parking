@@ -7,8 +7,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import one.digitalinnovation.parking.controller.dto.PriceCreateDTO;
 import one.digitalinnovation.parking.exception.PriceNotFoundException;
+import one.digitalinnovation.parking.model.Client;
 import one.digitalinnovation.parking.model.Price;
+import one.digitalinnovation.parking.repository.ClientRepository;
 import one.digitalinnovation.parking.repository.PriceRepository;
 
 @Service
@@ -16,6 +19,9 @@ public class PriceService {
 
 	@Autowired
 	private PriceRepository priceRepository;
+	
+	@Autowired
+	private ClientRepository clientRepository;
 	
 	@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 	public List<Price> findAll(){
@@ -30,30 +36,17 @@ public class PriceService {
 	}
 	
 	@Transactional
-	public Price create (Price priceCreate) {
+	public Price create (PriceCreateDTO priceCreate) {
 		Price price = new Price();
+		Client client = clientRepository.findById(priceCreate.getClientId()).get();
+		
+		price.setClient(client);
 		price.setVacancies(priceCreate.getVacancies());
 		price.setOneHourValue(priceCreate.getOneHourValue());
 		price.setAdditionalPerHourValue(priceCreate.getAdditionalPerHourValue());
 		price.setDayValue(priceCreate.getDayValue());
 		
-		priceRepository.save(priceCreate);
-		return priceCreate;
-	}
-	
-	@Transactional
-	public Price update(Long id, Price priceCreate) {
-		Price price = findById(id);
-		if (price == null) {
-			throw new PriceNotFoundException(id);
-		}
-		price.setVacancies(priceCreate.getVacancies());
-		price.setOneHourValue(priceCreate.getOneHourValue());
-		price.setAdditionalPerHourValue(priceCreate.getAdditionalPerHourValue());
-		price.setDayValue(priceCreate.getDayValue());
-		
-		priceRepository.save(priceCreate);
-		return price;
+		return priceRepository.save(price);
 	}
 	
 	@Transactional
@@ -61,5 +54,22 @@ public class PriceService {
 		findById(id);
 		priceRepository.deleteById(id);
 	}
+	
+//	@Transactional
+//	public Price update(Long id, Price priceCreate) {
+//		Price price = findById(id);
+//		if (price == null) {
+//			throw new PriceNotFoundException(id);
+//		}
+//		price.setVacancies(priceCreate.getVacancies());
+//		price.setOneHourValue(priceCreate.getOneHourValue());
+//		price.setAdditionalPerHourValue(priceCreate.getAdditionalPerHourValue());
+//		price.setDayValue(priceCreate.getDayValue());
+//		
+//		priceRepository.save(priceCreate);
+//		return price;
+//	}
+
+
 	
 }

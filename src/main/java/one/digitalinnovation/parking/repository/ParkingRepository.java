@@ -8,5 +8,6 @@ import one.digitalinnovation.parking.model.Parking;
 @Repository
 public interface ParkingRepository extends JpaRepository<Parking, String>{
 
-	
+//	@Cacheable("Parking")
+//	List<Parking> findByFinished(Boolean finished, Pageable sort);
 }

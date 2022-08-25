@@ -20,8 +20,6 @@ public class Price {
 	private Client client;
 
 	private int vacancies;
-	private int oneHour;
-	private int twentyFourHour;
 	private double oneHourValue;
 	private double additionalPerHourValue;
 	private double dayValue;	
@@ -36,8 +34,6 @@ public class Price {
 		this.id = id;
 		this.client = client;
 		this.vacancies = vacancies;
-		this.oneHour = oneHour;
-		this.twentyFourHour = twentyFourHour;
 		this.oneHourValue = oneHourValue;
 		this.additionalPerHourValue = additionalPerHourValue;
 		this.dayValue = dayValue;
@@ -67,22 +63,6 @@ public class Price {
 
 	public void setVacancies(int vacancies) {
 		this.vacancies = vacancies;
-	}
-
-	public int getOneHour() {
-		return oneHour;
-	}
-
-	public void setOneHour(int oneHour) {
-		this.oneHour = oneHour;
-	}
-
-	public int getTwentyFourHour() {
-		return twentyFourHour;
-	}
-
-	public void setTwentyFourHour(int twentyFourHour) {
-		this.twentyFourHour = twentyFourHour;
 	}
 
 	public double getOneHourValue() {

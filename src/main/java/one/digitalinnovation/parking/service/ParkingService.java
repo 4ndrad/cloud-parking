@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import one.digitalinnovation.parking.controller.dto.ParkingCreateDTO;
+import one.digitalinnovation.parking.controller.dto.ParkingUpdateDTO;
 import one.digitalinnovation.parking.exception.ParkingNotFoundException;
 import one.digitalinnovation.parking.model.Client;
 import one.digitalinnovation.parking.model.Parking;
@@ -75,6 +76,21 @@ public class ParkingService {
 		
 		return parkingRepository.save(parking);
 	}
+	
+	@Transactional
+	public Parking update(String id, ParkingUpdateDTO parkingUpdate) {
+		Parking parking = findById(id);
+		if (parking == null) {
+			throw new ParkingNotFoundException(id);
+		}
+		parking.setColor(parkingUpdate.getColor());
+		parking.setLicense(parkingUpdate.getLicense());
+		parking.setModel(parkingUpdate.getModel());
+		parking.setState(parkingUpdate.getState());
+		
+		return parkingRepository.save(parking);
+	}
+
 
 	@Transactional
 	public void delete(String id) {
@@ -82,19 +98,6 @@ public class ParkingService {
 		parkingRepository.deleteById(id);
 	}
 
-//	@Transactional
-//	public Parking update(String id, Parking parkingCreate) {
-//		Parking parking = findById(id);
-//		if (parking == null) {
-//			throw new ParkingNotFoundException(id);
-//		}
-//		parking.setColor(parkingCreate.getColor());
-//		parking.setLicense(parkingCreate.getLicense());
-//		parking.setModel(parkingCreate.getModel());
-//		parking.setState(parkingCreate.getState());
-//		
-//		return parkingRepository.save(parking);
-//	}
 
 
 	

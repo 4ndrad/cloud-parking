@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import one.digitalinnovation.parking.controller.dto.PriceCreateDTO;
-import one.digitalinnovation.parking.model.Parking;
+import one.digitalinnovation.parking.controller.dto.PriceUpdateDTO;
 import one.digitalinnovation.parking.model.Price;
 import one.digitalinnovation.parking.service.PriceService;
 
@@ -58,22 +59,17 @@ public class PriceController {
 		return priceService.create(dto);
 	}
 	
+	@PutMapping("/{id}")
+	@ApiOperation("Parking update")
+	public ResponseEntity<Price> update(@PathVariable Long id,@RequestBody PriceUpdateDTO dto){
+		Price price = priceService.update(id, dto);
+		return ResponseEntity.status(HttpStatus.CREATED).body(price);
+	}
+	
 	@DeleteMapping("/{id}")
 	@ApiOperation("Price delete by Id")
-	public ResponseEntity<Parking> delete (@PathVariable Long id){
+	public ResponseEntity<Price> delete (@PathVariable Long id){
 		priceService.delete(id);
 		return ResponseEntity.noContent().build();
 	}
-	
-//	@PutMapping("/{id}")
-//	@ApiOperation("Parking update")
-//	public ResponseEntity<ClientDTO> update(@PathVariable Long id,@RequestBody ClientCreateDTO dto){
-//		var clientCreate = clientMapper.toClientCreate(dto);
-//		Client client = clientService.update(id, clientCreate);
-//		ClientDTO result = clientMapper.toClientDTO(client);
-//		return ResponseEntity.status(HttpStatus.CREATED).body(result);
-//	}
-//	
-	
-
 }

@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import one.digitalinnovation.parking.controller.dto.PriceCreateDTO;
+import one.digitalinnovation.parking.controller.dto.PriceUpdateDTO;
 import one.digitalinnovation.parking.exception.PriceNotFoundException;
 import one.digitalinnovation.parking.model.Client;
 import one.digitalinnovation.parking.model.Price;
@@ -50,25 +51,26 @@ public class PriceService {
 	}
 	
 	@Transactional
+	public Price update(Long id, PriceUpdateDTO priceUpdate) {
+		Price price = findById(id);
+		if (price == null) {
+			throw new PriceNotFoundException(id);
+		}
+		price.setVacancies(priceUpdate.getVacancies());
+		price.setOneHourValue(priceUpdate.getOneHourValue());
+		price.setAdditionalPerHourValue(priceUpdate.getAdditionalPerHourValue());
+		price.setDayValue(priceUpdate.getDayValue());
+		
+		return priceRepository.save(price);
+	}
+	
+	@Transactional
 	public void delete(Long id) {
 		findById(id);
 		priceRepository.deleteById(id);
 	}
 	
-//	@Transactional
-//	public Price update(Long id, Price priceCreate) {
-//		Price price = findById(id);
-//		if (price == null) {
-//			throw new PriceNotFoundException(id);
-//		}
-//		price.setVacancies(priceCreate.getVacancies());
-//		price.setOneHourValue(priceCreate.getOneHourValue());
-//		price.setAdditionalPerHourValue(priceCreate.getAdditionalPerHourValue());
-//		price.setDayValue(priceCreate.getDayValue());
-//		
-//		priceRepository.save(priceCreate);
-//		return price;
-//	}
+
 
 
 	

@@ -43,29 +43,25 @@ public class ClientService {
 	}
 	
 	@Transactional
+	public Client update(Long id, ClientCreateDTO dto) {
+		Client client = findById(id);
+		if (client == null) {
+			throw new ClientNotFoundException(id);
+		}
+		client.setClientName(dto.getClientName());
+		client.setCnpj(dto.getCnpj());
+		client.setEmail(dto.getEmail());
+		client.setPassword(client.getPassword());
+		
+		return clientRepository.save(client);
+	}
+	
+	@Transactional
 	public void delete(Long id) {
 		findById(id);
 		clientRepository.deleteById(id);
 	}
 	
-//	@Transactional
-//	public Client update(Long id, Client clientCreate) {
-//		Client client = findById(id);
-//		if (client == null) {
-//			throw new ClientNotFoundException(id);
-//		}
-//		client.setClientName(clientCreate.getClientName());
-//		client.setCnpj(clientCreate.getCnpj());
-//		client.setEmail(clientCreate.getEmail());
-//		client.setPassword(client.getPassword());
-//		
-//		clientRepository.save(clientCreate);
-//		return client;
-//	}
-//	
-//	
-
-//	
 
 	
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import one.digitalinnovation.parking.controller.dto.ParkingCreateDTO;
+import one.digitalinnovation.parking.controller.dto.ParkingUpdateDTO;
 import one.digitalinnovation.parking.model.Parking;
 import one.digitalinnovation.parking.service.ParkingService;
 
@@ -64,6 +66,14 @@ public class ParkingController {
 		return ResponseEntity.ok(parking);
 	}
 	
+	@PutMapping("/{id}")
+	@ApiOperation("Parking update")
+	public ResponseEntity<Parking> update(@PathVariable String id, @RequestBody ParkingUpdateDTO dto){
+		Parking parking = parkingService.update(id, dto);
+		return ResponseEntity.status(HttpStatus.OK).body(parking);
+	}
+	
+	
 	@DeleteMapping("/{id}")
 	@ApiOperation("Parking delete by Id")
 	public ResponseEntity<Parking> delete (@PathVariable String id){
@@ -71,15 +81,7 @@ public class ParkingController {
 		return ResponseEntity.noContent().build();
 	}
 
-//	@PutMapping("/{id}")
-//	@ApiOperation("Parking update")
-//	public ResponseEntity<ParkingDTO> update(@PathVariable String id, @RequestBody ParkingCreateDTO dto){
-//		var parkingCreate = parkingMapper.toParkingCreate(dto);
-//		Parking parking = parkingService.update(id, parkingCreate);
-//		ParkingDTO result = parkingMapper.toParkingDTO(parking);
-//		return ResponseEntity.status(HttpStatus.OK).body(result);
-//	}
-//	
+
 
 
 

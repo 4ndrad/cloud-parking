@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -59,6 +60,14 @@ public class ClientController {
 		return clientService.create(dto);
 	}
 	
+	@PutMapping("/{id}")
+	@ApiOperation("Parking update")
+	public ResponseEntity<Client> update(@PathVariable Long id,@RequestBody ClientCreateDTO dto){
+		Client client = clientService.update(id, dto);
+		return ResponseEntity.status(HttpStatus.CREATED).body(client);
+	}
+	
+	
 	@DeleteMapping("/{id}")
 	@ApiOperation("Client delete by Id")
 	public ResponseEntity<Parking> delete (@PathVariable Long id){
@@ -66,16 +75,8 @@ public class ClientController {
 		return ResponseEntity.noContent().build();
 	}
 	
-//	
-//	@PutMapping("/{id}")
-//	@ApiOperation("Parking update")
-//	public ResponseEntity<ClientDTO> update(@PathVariable Long id,@RequestBody ClientCreateDTO dto){
-//		var clientCreate = clientMapper.toClientCreate(dto);
-//		Client client = clientService.update(id, clientCreate);
-//		ClientDTO result = clientMapper.toClientDTO(client);
-//		return ResponseEntity.status(HttpStatus.CREATED).body(result);
-//	}
-//	
+	
+
 
 
 

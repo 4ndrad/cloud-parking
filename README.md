@@ -19,6 +19,9 @@ Por exemplo:
 
 mais informações https://www.detran.sp.gov.br/wps/portal/portaldetran/cidadao/oquefazerquando/aa929b6b-5788-4d32-a91f-0d220a559c47/
 
+## Inclusão de duas API para Auxiliares
+Adicionei duas API´s auxiliares de Client  e Price para ajudar  na hora de consumir a API e deixar mais prático.
+
 ## Autorização do Swagger
 No Swagger vai ter um campo com um cadiado aberto na documentação, clique coloque o usuario e senha e em seguida clique em "Close"
 Você estara autorizado a usar e o cadiado estara fechado
@@ -31,8 +34,11 @@ https://parking-ntn.herokuapp.com/swagger-ui.html
 #### Deploy da API
 https://parking-ntn.herokuapp.com/parking
 
-## Optei por não usar o Docker e nem criar um container
-### mas deixei a dependência  e um arquivo de configuração disponivel, caso queira usar  basta seguir as instrções a baixo
+##Observações
+
+### No update de Client você tem que enviar todas as informções se não no banco de dados só salva as alteradas e o restante fica NULL.
+### Optei por não usar o Docker e nem criar um container.
+#### mas deixei a dependência  e um arquivo de configuração disponivel, caso queira usar  basta seguir as instrções a baixo.
 
 ## Docker
 Tenha o docker instalado e crie ou baixe uma imagem (nome opcinal da imagem "mysql:10-alpine")

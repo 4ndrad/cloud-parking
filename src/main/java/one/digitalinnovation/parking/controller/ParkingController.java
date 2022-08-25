@@ -68,7 +68,7 @@ public class ParkingController {
 	
 	@PutMapping("/{id}")
 	@ApiOperation("Parking update")
-	public ResponseEntity<Parking> update(@PathVariable String id, @RequestBody ParkingUpdateDTO dto){
+	public ResponseEntity<Parking> update(@PathVariable String id, @Valid @RequestBody ParkingUpdateDTO dto){
 		Parking parking = parkingService.update(id, dto);
 		return ResponseEntity.status(HttpStatus.OK).body(parking);
 	}

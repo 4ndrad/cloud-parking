@@ -63,7 +63,7 @@ public class ClientController {
 	
 	@PutMapping("/{id}")
 	@ApiOperation("Parking update")
-	public ResponseEntity<Client> update(@PathVariable Long id,@RequestBody ClientUpdateDTO dto){
+	public ResponseEntity<Client> update(@PathVariable Long id, @Valid @RequestBody ClientUpdateDTO dto){
 		Client client = clientService.update(id, dto);
 		return ResponseEntity.status(HttpStatus.OK).body(client);
 	}

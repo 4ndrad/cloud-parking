@@ -36,7 +36,6 @@ https://parking-ntn.herokuapp.com/parking
 
 ## Observações
 
-### No update de Client você tem que enviar todas as informções se não no banco de dados só salva as alteradas e o restante fica NULL.
 ### Optei por não usar o Docker e nem criar um container.
 #### mas deixei a dependência  e um arquivo de configuração disponivel, caso queira usar  basta seguir as instrções a baixo.
 

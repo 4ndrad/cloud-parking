@@ -48,7 +48,8 @@ public class ClientService {
 		Client client = findById(id);
 		if (client == null) {
 			throw new ClientNotFoundException(id);
-		}
+		} 
+		
 		client.setClientName(clientUpdate.getClientName());
 		client.setCnpj(clientUpdate.getCnpj());
 		client.setEmail(clientUpdate.getEmail());

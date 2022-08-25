@@ -61,7 +61,7 @@ public class PriceController {
 	
 	@PutMapping("/{id}")
 	@ApiOperation("Parking update")
-	public ResponseEntity<Price> update(@PathVariable Long id,@RequestBody PriceUpdateDTO dto){
+	public ResponseEntity<Price> update(@PathVariable Long id, @Valid @RequestBody PriceUpdateDTO dto){
 		Price price = priceService.update(id, dto);
 		return ResponseEntity.status(HttpStatus.OK).body(price);
 	}

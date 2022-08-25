@@ -63,7 +63,7 @@ public class ParkingController {
 	@ApiOperation("Checkout parking")
 	public ResponseEntity<Parking> exit(@PathVariable String id){
 		Parking parking = parkingService.checkout(id);
-		return ResponseEntity.ok(parking);
+		return ResponseEntity.status(HttpStatus.CREATED).body(parking);
 	}
 	
 	@PutMapping("/{id}")

@@ -15,6 +15,7 @@ import one.digitalinnovation.parking.controller.dto.ParkingUpdateDTO;
 import one.digitalinnovation.parking.exception.ParkingNotFoundException;
 import one.digitalinnovation.parking.model.Client;
 import one.digitalinnovation.parking.model.Parking;
+import one.digitalinnovation.parking.model.ParkingCheckOut;
 import one.digitalinnovation.parking.repository.ClientRepository;
 import one.digitalinnovation.parking.repository.ParkingRepository;
 

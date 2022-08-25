@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import one.digitalinnovation.parking.controller.dto.ClientCreateDTO;
+import one.digitalinnovation.parking.controller.dto.ClientUpdateDTO;
 import one.digitalinnovation.parking.exception.ClientNotFoundException;
 import one.digitalinnovation.parking.model.Client;
 import one.digitalinnovation.parking.repository.ClientRepository;
@@ -43,15 +44,15 @@ public class ClientService {
 	}
 	
 	@Transactional
-	public Client update(Long id, ClientCreateDTO dto) {
+	public Client update(Long id, ClientUpdateDTO clientUpdate) {
 		Client client = findById(id);
 		if (client == null) {
 			throw new ClientNotFoundException(id);
 		}
-		client.setClientName(dto.getClientName());
-		client.setCnpj(dto.getCnpj());
-		client.setEmail(dto.getEmail());
-		client.setPassword(client.getPassword());
+		client.setClientName(clientUpdate.getClientName());
+		client.setCnpj(clientUpdate.getCnpj());
+		client.setEmail(clientUpdate.getEmail());
+		client.setPassword(clientUpdate.getPassword());
 		
 		return clientRepository.save(client);
 	}

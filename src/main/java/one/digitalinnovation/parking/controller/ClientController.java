@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import one.digitalinnovation.parking.controller.dto.ClientCreateDTO;
+import one.digitalinnovation.parking.controller.dto.ClientUpdateDTO;
 import one.digitalinnovation.parking.model.Client;
 import one.digitalinnovation.parking.model.Parking;
 import one.digitalinnovation.parking.service.ClientService;
@@ -62,9 +63,9 @@ public class ClientController {
 	
 	@PutMapping("/{id}")
 	@ApiOperation("Parking update")
-	public ResponseEntity<Client> update(@PathVariable Long id,@RequestBody ClientCreateDTO dto){
+	public ResponseEntity<Client> update(@PathVariable Long id,@RequestBody ClientUpdateDTO dto){
 		Client client = clientService.update(id, dto);
-		return ResponseEntity.status(HttpStatus.CREATED).body(client);
+		return ResponseEntity.status(HttpStatus.OK).body(client);
 	}
 	
 	

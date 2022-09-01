@@ -1,7 +1,6 @@
 package one.digitalinnovation.parking.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -39,17 +38,12 @@ public class ParkingController {
 		List<Parking> parkingList = parkingService.findAll();
 		return ResponseEntity.ok(parkingList);
 	}
-	
+
 	@GetMapping("/{id}")
-	@ApiOperation("Parking find by Id")
-	public ResponseEntity<Parking> getClient(@PathVariable String id){
-		final Optional<Parking> parking = Optional.of(parkingService.findById(id));
-		
-		if (parking.isPresent()) {
-			return ResponseEntity.ok(parking.get());
-		}else {
-			return ResponseEntity.notFound().build();
-		}
+	@ApiOperation("Price find by Id")
+	public ResponseEntity<Parking> findById(@PathVariable String id){
+		Parking parking = parkingService.findById(id);
+		return ResponseEntity.ok(parking);
 	}
 	
 	@PostMapping(consumes = "application/json")
@@ -61,14 +55,14 @@ public class ParkingController {
 	
 	@PostMapping("/{id}")
 	@ApiOperation("Checkout parking")
-	public ResponseEntity<Parking> exit(@PathVariable String id){
+	public ResponseEntity<Parking> exit(@PathVariable String id) {
 		Parking parking = parkingService.checkout(id);
 		return ResponseEntity.status(HttpStatus.CREATED).body(parking);
 	}
 	
 	@PutMapping("/{id}")
 	@ApiOperation("Parking update")
-	public ResponseEntity<Parking> update(@PathVariable String id, @Valid @RequestBody ParkingUpdateDTO dto){
+	public ResponseEntity<Parking> update(@PathVariable String id, @RequestBody ParkingUpdateDTO dto) {
 		Parking parking = parkingService.update(id, dto);
 		return ResponseEntity.status(HttpStatus.OK).body(parking);
 	}

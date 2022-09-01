@@ -1,30 +1,32 @@
 package one.digitalinnovation.parking.controller.dto;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class ClientUpdateDTO {
 
-	@NotNull
-	@NotEmpty
 	private String clientName;
 
 	@Pattern(regexp = "^\\d{2}.\\d{3}.\\d{3}/\\d{4}-\\d{2}$")
-	@NotNull
-	@NotEmpty
 	private String cnpj;
 
 	@Pattern(regexp = "^(.+)@(.+)$")
-	@NotNull
-	@NotEmpty
 	private String email;
 
 	@Size(min = 3, max = 50)
-	@NotNull
-	@NotEmpty
 	private String password;
+	
+	public ClientUpdateDTO() {
+		
+	}
+
+	public ClientUpdateDTO(String clientName, @Pattern(regexp = "^\\d{2}.\\d{3}.\\d{3}/\\d{4}-\\d{2}$") String cnpj,
+			@Pattern(regexp = "^(.+)@(.+)$") String email, @Size(min = 3, max = 50) String password) {
+		this.clientName = clientName;
+		this.cnpj = cnpj;
+		this.email = email;
+		this.password = password;
+	}
 
 	public String getClientName() {
 		return clientName;

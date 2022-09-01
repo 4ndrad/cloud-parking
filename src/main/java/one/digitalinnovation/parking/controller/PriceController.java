@@ -1,7 +1,6 @@
 package one.digitalinnovation.parking.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -42,14 +41,9 @@ public class PriceController {
 	
 	@GetMapping("/{id}")
 	@ApiOperation("Price find by Id")
-	public ResponseEntity<Price> getClient(@PathVariable("id") Long id){
-		final Optional<Price> price = Optional.of(priceService.findById(id));
-		
-		if (price.isPresent()) {
-			return ResponseEntity.ok(price.get());
-		}else {
-			return ResponseEntity.notFound().build();
-		}
+	public ResponseEntity<Price> findById(@PathVariable("id") Long id){
+		Price price = priceService.findById(id);
+		return ResponseEntity.ok(price);
 	}
 	
 	@PostMapping(consumes = "application/json")
@@ -61,7 +55,7 @@ public class PriceController {
 	
 	@PutMapping("/{id}")
 	@ApiOperation("Parking update")
-	public ResponseEntity<Price> update(@PathVariable Long id, @Valid @RequestBody PriceUpdateDTO dto){
+	public ResponseEntity<Price> update(@PathVariable Long id,  @RequestBody PriceUpdateDTO dto){
 		Price price = priceService.update(id, dto);
 		return ResponseEntity.status(HttpStatus.OK).body(price);
 	}

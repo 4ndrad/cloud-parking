@@ -1,7 +1,6 @@
 package one.digitalinnovation.parking.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -43,15 +42,10 @@ public class ClientController {
 	
 	
 	@GetMapping("/{id}")
-	@ApiOperation("Client find by Id")
-	public ResponseEntity<Client> getClient(@PathVariable("id") Long id){
-		final Optional<Client> client = Optional.of(clientService.findById(id));
-		
-		if (client.isPresent()) {
-			return ResponseEntity.ok(client.get());
-		}else {
-			return ResponseEntity.notFound().build();
-		}
+	@ApiOperation("Price find by Id")
+	public ResponseEntity<Client> findById(@PathVariable Long id){
+		Client client = clientService.findById(id);
+		return ResponseEntity.ok(client);
 	}
 
 	@PostMapping(consumes = "application/json")
@@ -60,10 +54,10 @@ public class ClientController {
 	public Client create(@RequestBody @Valid ClientCreateDTO dto){
 		return clientService.create(dto);
 	}
-	
+		
 	@PutMapping("/{id}")
 	@ApiOperation("Parking update")
-	public ResponseEntity<Client> update(@PathVariable Long id, @Valid @RequestBody ClientUpdateDTO dto){
+	public ResponseEntity<Client> update(@PathVariable Long id, @RequestBody ClientUpdateDTO dto){
 		Client client = clientService.update(id, dto);
 		return ResponseEntity.status(HttpStatus.OK).body(client);
 	}

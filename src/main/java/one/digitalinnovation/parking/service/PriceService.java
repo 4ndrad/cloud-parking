@@ -30,7 +30,7 @@ public class PriceService {
 	}
 	
 	@Transactional(readOnly = true)
-	public Price findById(Long id) {
+	public Price findById(Long id){
 		return priceRepository.findById(id).orElseThrow(() ->
 			new PriceNotFoundException(id)
 		);
@@ -65,7 +65,7 @@ public class PriceService {
 	}
 	
 	@Transactional
-	public void delete(Long id) {
+	public void delete(Long id){
 		findById(id);
 		priceRepository.deleteById(id);
 	}
